@@ -37,11 +37,16 @@ git clone https://github.com/Andi5986/jac-llm-model.git
 ```
 
 Install the required libraries:
-
 Make sure you have pip installed, then run:
 
 ```bash
 pip install -r requirements.txt
+```
+
+Get your OPENAI API KEY from https://platform.openai.com/account/api-keys and create `.env` environment
+
+```bash
+OPENAI_API_KEY=YOUR_API_KEY
 ```
 
 Run the app:

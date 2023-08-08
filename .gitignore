@@ -1,5 +1,6 @@
 # ignore dorectories
 __pycache__/
+**/__pycache__/
 env/
 
 # ignore files
