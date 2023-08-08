@@ -2,13 +2,21 @@ import streamlit as st
 from htmlTemplates import css
 from dotenv import load_dotenv
 from utils import get_docx_text, get_pdf_text, get_text_chunks, get_vectorstore, get_conversation_chain, handle_userinput
+import openai
+
+st.set_page_config(page_title="Chat with multiple PDFs",
+                       page_icon="https://i.postimg.cc/CKgGWWwM/Screenshot-2023-08-06-at-21-35-45.png")
+st.write(css, unsafe_allow_html=True)
+
+def set_openai_key(key):
+    openai.api_key = key
+    
+# load_dotenv()
 
 def main():
-    load_dotenv()
-    st.set_page_config(page_title="Chat with multiple PDFs",
-                       page_icon="https://i.postimg.cc/CKgGWWwM/Screenshot-2023-08-06-at-21-35-45.png")
-    st.write(css, unsafe_allow_html=True)
-
+    if openai_api_key := st.sidebar.text_input(':blue[_Enter your OpenAI API Key_]', type='password'):
+        set_openai_key(openai_api_key)
+        
     if "conversation" not in st.session_state:
         st.session_state.conversation = None
     if "chat_history" not in st.session_state:
